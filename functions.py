@@ -145,30 +145,53 @@ person1.greet()
 """
 
 
+# Class and Object attribute
+# class attribute = Shared by all objects, created directly in class (It is defined outside __init__(), directly in the class.)
+# object attribute = Unique to each object, created using self. (These are variables that belong to each object separately)
+"""
+class Dog:  # Creating a class named Dog
+    species = "Canine"  # Class attribute (common to all dogs)
+
+    def __init__(self, name):  # Constructor runs when object is created
+        self.name = name  # Object attribute (unique for each dog)
+
+dog1 = Dog("Bruno")  # Object 1 with name Bruno
+dog2 = Dog("Tommy")  # Object 2 with name Tommy
+
+print(dog1.name)      # Output: Bruno (object attribute)
+print(dog2.name)      # Output: Tommy (object attribute)
+print(dog1.species)   # Output: Canine (class attribute)
+print(dog2.species)   # Output: Canine (class attribute)
+"""
+
+
 #Method and its Types
 # A method is a function inside a class that works with the object of that class.
 # 3 Types of Method are there 1-Instance Method,2-Class Method and 3- Static method
 
 
-#1 Static Method
-"""
+#1  Instance Method
+
 # When you want to perform a specific action for an object, you use 'self' to define an instance method.
 # Each object can have different values.
-
+"""
 class Student:
     def __init__(self, name):  # This is an instance method (because it uses 'self')
         self.name = name
 
     def say_hello(self):  # Instance method
         print(f"Hello, my name is {self.name}")
+        
+s1 = Student("Deepak")  # class ko call kiya aur uss me object Deepak bna diya 
+s1.say_hello()  # aab hum class k method ko use kr rhe - s1 me class call hoo gyi thi toh s1(class ho gya).say_hello(method)
 """
 
 
 #2 Class Method
-"""
+
 # When you want to show or work with the same data for all objects (like school name),
 # you use a class method with 'cls' to access class-level data.
-
+"""
 class Student:
     school = "ABC School"  # Class variable
 
@@ -176,6 +199,10 @@ class Student:
     def show_school(cls):  # Class method (uses 'cls' instead of 'self')
         print(f"School Name: {cls.school}")
 
+s1 = Student()  # s1 object bn gya class ka
+s1.show_school()  # s1 ki madad se hum ne class method ko call kr liya 
+#or
+Student.show_school()  # You can also call using class name (optional but allowed)
 """
 
 
@@ -188,6 +215,10 @@ class Student:
     @staticmethod  # Static method decorator
     def greet():  # Static method
         print("Welcome to the class!")
+        
+s2 = Student()
+s2.greet()
+Student.greet()
 """
 
 
@@ -244,6 +275,22 @@ for j in gen:  # ye hum ne for loop chala diya variable pe to print all elements
 
 
 # OOPS Concept
+
+
+class Student:
+    def __init__(self, name ,marks):
+        self.name = name
+        self.marks = marks
+
+    def print_avg(self):
+        sum = 0
+        for mark in self.marks:
+            sum = sum + mark
+
+        print(f"Hi {self.name} your average score is : ",sum/3)
+
+s1 = Student("Deepak", [65,76,88])
+s1.print_avg()
 
 
 
