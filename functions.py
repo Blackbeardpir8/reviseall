@@ -297,32 +297,6 @@ s1.print_avg()
 # 3 Inheritance - (Inheritance allows a class to reuse the code and properties of another class)
 # 4 Polymorphism - (Polymorphism means "many forms" — same method or function behaves differently based on context)
 
-"""
-class Account:
-    def __init__(self, balance, account):
-        self.balance = balance
-        self.account = account
-
-    def debit(self, amount):
-        self.balance = self.balance - amount
-        print(f"Rs {amount} was debited from your account")
-        print(f"Your current balance is {self.check_balance()}")
-
-    def deposit(self, amount):
-        self.balance = self.balance + amount
-        print(f"Rs {amount} was deposited in your account")
-        print(f"Your current balance is {self.check_balance()}")
-
-    def check_balance(self):
-        return self.balance
-
-# Creating an account
-acc1 = Account(10000, 1)
-print(acc1.account)
-print(acc1.balance)
-acc1.deposit(5000)
-acc1.deposit(25000)
-"""
 
 #  Abstraction - (Abstraction means hiding complex logic and showing only the necessary information)
 #  Abstraction - Sirf important cheezein dikhani, baaki logic chhupa dena
@@ -400,4 +374,33 @@ class Parrot(Bird):   # Parrot class ne inherit kiya
 # Loop se dono objects ka method call kiya
 for bird in (Sparrow(), Parrot()):
     bird.sound()  # Same method, lekin output alag
+"""
+
+
+#example
+"""
+class Account:
+    def __init__(self, balance, account):
+        self.balance = balance
+        self.account = account
+
+    def debit(self, amount):
+        self.balance = self.balance - amount
+        print(f"Rs {amount} was debited from your account")
+        print(f"Your current balance is {self.check_balance()}")
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+        print(f"Rs {amount} was deposited in your account")
+        print(f"Your current balance is {self.check_balance()}")
+
+    def check_balance(self):
+        return self.balance
+
+# Creating an account
+acc1 = Account(10000, 1)
+print(acc1.account)
+print(acc1.balance)
+acc1.deposit(5000)
+acc1.deposit(25000)
 """
