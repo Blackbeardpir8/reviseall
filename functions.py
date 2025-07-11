@@ -273,12 +273,10 @@ for j in gen:  # ye hum ne for loop chala diya variable pe to print all elements
     print(j)
 """
 
-
-# OOPS Concept
-
-
+#example (bss example h )
+"""
 class Student:
-    def __init__(self, name ,marks):
+    def __init__(self, name,marks):
         self.name = name
         self.marks = marks
 
@@ -291,6 +289,115 @@ class Student:
 
 s1 = Student("Deepak", [65,76,88])
 s1.print_avg()
+"""
+
+# OOPS Concept(4 pillars of OOPS)
+# 1 Abstraction - (Abstraction means hiding complex logic and showing only the necessary information)
+# 2 Encapsulation - (Encapsulation means hiding the internal data of a class and restricting direct access to it)
+# 3 Inheritance - (Inheritance allows a class to reuse the code and properties of another class)
+# 4 Polymorphism - (Polymorphism means "many forms" — same method or function behaves differently based on context)
+
+"""
+class Account:
+    def __init__(self, balance, account):
+        self.balance = balance
+        self.account = account
+
+    def debit(self, amount):
+        self.balance = self.balance - amount
+        print(f"Rs {amount} was debited from your account")
+        print(f"Your current balance is {self.check_balance()}")
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+        print(f"Rs {amount} was deposited in your account")
+        print(f"Your current balance is {self.check_balance()}")
+
+    def check_balance(self):
+        return self.balance
+
+# Creating an account
+acc1 = Account(10000, 1)
+print(acc1.account)
+print(acc1.balance)
+acc1.deposit(5000)
+acc1.deposit(25000)
+"""
+
+#  Abstraction - (Abstraction means hiding complex logic and showing only the necessary information)
+#  Abstraction - Sirf important cheezein dikhani, baaki logic chhupa dena
+
+"""
+from abc import ABC, abstractmethod  # Abstract class banane k liye ABC import kiya
+
+class Vehicle(ABC):  # Abstract class banayi
+    @abstractmethod
+    def start_engine(self):  # Abstract method (sirf define kiya, body nhi di)
+        pass
+
+class Car(Vehicle):  # Car class ne Vehicle ko inherit kiya
+    def start_engine(self):  # Ab method ko define kiya
+        print("Car engine started!")
+
+c = Car()  # Object banaya
+c.start_engine()  # Method call kiya
+"""
+
+#  Encapsulation - (Encapsulation means hiding the internal data of a class and restricting direct access to it)
+#  Encapsulation - Data ko protect karna (direct access se rokna)
+
+"""
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private variable (double underscore se banaya)
+
+    def deposit(self, amount):  # Balance increase karne ka method
+        self.__balance += amount
+
+    def get_balance(self):  # Balance return karne ka method
+        return self.__balance
+
+acc = BankAccount(1000)  # Object banaya
+acc.deposit(500)         # Deposit kiya
+print(acc.get_balance()) # Balance check kiya (method se access kiya)
+# print(acc.__balance)   ❌ Direct access allowed nahi hai (error dega)
+"""
+
+# Inheritance - (Inheritance allows a class to reuse the code and properties of another class)
+# Inheritance -  Ek class doosri class ka use kare (property inherit kare)
+
+"""
+class Animal:
+    def speak(self):  # Parent class ka method
+        print("Animal speaks")
+
+class Dog(Animal):  # Dog class ne Animal ko inherit kiya
+    def bark(self):  # Dog ka apna method
+        print("Dog barks")
+
+d = Dog()       # Dog class ka object banaya
+d.speak()       # Parent class ka method call kiya
+d.bark()        # Apna method bhi call kiya
+"""
 
 
+# Polymorphism - (Polymorphism means "many forms" — same method or function behaves differently based on context)
+# Polymorphism - Same method ka alag-alag behavior hona
 
+"""
+class Bird:
+    def sound(self):  # Base class ka method
+        print("Bird makes sound")
+
+class Sparrow(Bird):  # Sparrow class ne inherit kiya
+    def sound(self):  # Method ko override kiya
+        print("Sparrow chirps")
+
+class Parrot(Bird):   # Parrot class ne inherit kiya
+    def sound(self):  # Method ko override kiya
+        print("Parrot talks")
+
+# Loop se dono objects ka method call kiya
+for bird in (Sparrow(), Parrot()):
+    bird.sound()  # Same method, lekin output alag
+"""
